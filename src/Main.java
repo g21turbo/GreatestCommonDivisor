@@ -1,6 +1,10 @@
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println("The greatest common divisor is " + getGreatestCommonDivisor(25, 40));
+        System.out.println("The greatest common divisor is " + getGreatestCommonDivisor(75, 30));
+
+
     }
 
     public static int getGreatestCommonDivisor(int first, int second) {
@@ -9,13 +13,14 @@ public class Main {
             return -1;
         }
 
-        int divisor = 0;
+        int min = first < second ? first : second;
 
-        while (first > divisor) {
-            divisor++;
-            if (first % divisor == 0) {
-                return divisor;
+        int gcd = 1;
+        for (int i = 1; i <= min; i++) {
+            if (first % i == 0 & second % i == 0) {
+                gcd = i;
             }
         }
+        return gcd;
     }
 }
